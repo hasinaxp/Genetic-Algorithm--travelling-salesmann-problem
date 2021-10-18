@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Genetic Algorithm Implementation - Travelling salesman problem</title>
+	<style>
+		* {
+			position: relative;
+			box-sizing: border-box;
+		}
+		body {
+			font-family: Arial;
+		}
+		.row {
+			display: flex;
+			justify-content: space-around;
+			align-items: flex-start;
+		}
+		#dataset {
+			display: flex;
+			flex-direction: column;
+		}
+		input, select, button {
+			line-height: 1.6rem;
+			height: 1.6rem;
+			margin-bottom: 1rem;
+		}
+		label {
+			font-weight: bold;
+		}
+		canvas {
+			border: 1px solid black;
+		}
+		td {
+			min-width: 40px;
+			text-align: center;
+			font-size: .76rem;
+		}
+		#suggested_path {
+			max-width: 300px;
+			font-size: .76rem;
+		}
+		tr:nth-child(even) {
+			background-color: #eee;
+		}
+		
+	</style>
+</head>
+<body>
+	<h2>Genetic Algorithm Implementation - Travelling salesman problem</h2>
+	<h4>Submittted by - SPANDAN MONDAL (2021ITM010)</h4>
+
+	<div class="row">
+		<div id="dataset" >
+			<label for="city_no">Number of Cities</label>
+			<input type="number" id="city_no" value="30"/>
+			<label for="selection_size">No. of Selected Chromosomes each gen.</label>
+			<input type="number" id="selection_size" value="16"/>
+			<label for="population_size">Population Size</label>
+			<input type="number" id="population_size" value="200"/>
+			<label for="crossover_type">Crossover Stratagy</label>
+			<select id="crossover_type">
+				<option value="1p">One point</option>
+				<option value="2p">Two point</option>
+			</select>
+			<label for="selection_type">Selection Stratagy</label>
+			<select id="selection_type">
+				<option value="rw">Roulette wheel</option>
+				<option value="em">Elitism mechanism</option>
+			</select>
+			<button id="gen">Generate</button>
+			<button id="eval">Evaluate</button>
+			<br/>
+			<h5>Suggested path :</h5>
+			<div id="suggested_path"></div>
+			<h5>Distance of suggested path:</h5>
+			<div id="total_distance"></div>
+			<h5>Max recorded path distance:</h5>
+			<div id="max_distance"></div>
+		</div>
+		<canvas id="canvas"></canvas>
+	</div>
+	<div class="row">
+
+		<div style="padding: 16px;">
+			<h4>Generated city coordinates:</h4>
+			<div id="coordinate_list">[]</div>
+		</div>
+
+		<div style="padding: 16px;">
+			<h4>Fitness - Generation plotting:</h4>
+			<div id="plot1">[]</div>
+			<h4>Generations :</h4>
+			<div id="genarations">[]</div>
+		</div>
+
+	</div>
+	<div class="row">
+		<div style="padding: 16px;">
+			<h4>Fitness - population for 20 gens:</h4>
+			<div id="pf_list">[]</div>
+		</div>
+		<div style="padding: 16px;">
+			<h4>Fitness - population size plotting:</h4>
+			<div id="plot2">[]</div>
+		</div>
+	</div>
+
+	<script src="./canvas.js"></script>
+	<script src="./TS_GA_Implementation.js"></script>
+</body>
+</html>
